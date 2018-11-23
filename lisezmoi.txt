@@ -1,0 +1,196 @@
+Cette arborescence est une arborescence de répertoire recommandée pour les projets VoLAB
+Elle est nullment imposée de même que l'utilisation de tous les répertoires n'est pas nécessaire.
+Leur utilisation est laissée à l'appréciation des utilisateurs. Ce qui est finalement le plus important
+c'est de respecter le _v pour les répertoires vides.
+Tout ceci vise à ce qu'un nouvel intervenant sur le projet puisse s'y retrouvé plus facilement.
+L'ordre des répertoires (ainsi que leur numérotation) correspond à une chronologie logique des différentes étapes du projet.
+Une étape donnée devrait être close avant que la suivante ne commence.
+Là encore, il s'agit d'une recommendation et non d'une obligation.
+
+Rappel : le suffixe _V indique un répertoire vide
+
+Révision 1 : ajout du suffixe _C
+Ce suffixe indique que cette étape du projet est close
+
+
+
+00-avantProjet_v
+	01-maquettageFaisabilite_v
+    02-rechercheDocumentaire_v
+	03-rechercheLogiciel_v
+    04-ideesEnVrac_v
+    98-webLink_v
+01-docs_v
+	01-userDoc_v
+        image_v
+	02-specification_v
+        image_v
+	03-Conception_v
+		image_v
+		98-webLink_v
+    04-test_v    
+02-realisation_v
+	01-software_v
+	02-hardware_v
+	03-cao_3D_v
+10-rushs_v
+	01-texts_v
+	02-audio_v
+	03-video_v
+	04-pictures_v
+	05-liensWeb_v
+11-outils_v
+
+
+doxygen, doxyfile : (avec ARDUINO)
+FILE_PATTERNS = [...] *.ino sous Input
+EXTENSION_MAPPING = ino=c under "Project" 
+
+Autre grande question : que pousser sur github ?
+	Ne pas confondre git et github
+	On ne pousse sous github que la branche master !
+
+Grande question : dans tout ça qu'est-ce qu'on git et qu'est-ce qu'on ne git pas:
+https://fr.atlassian.com/git/tutorials/saving-changes/gitignore#git-ignore-patterns
+
+
+non: *.stl, *.gcode
+gitignore:voir directement dans le fichier
+
+
+
+
+
+***********************************************************************************************************************
+Archives
+***********************************************************************************************************************
+
+Mode d'emploi:
+1) copier le fichier creatArboProj.bat dans un répertoire vierge (le répertoire du projet)
+2) Exécuter le fichier (de préférence dans une fenêtre de commande dans le répertoire)
+	il crée automatiquement l'arborescence du projet plus un petit fichier texte "readme.txt" en français qu'il est vivement conseillé de lire de de respecter...
+
+ 
+00-avantProjet_C
+01-maquettageFaisabilite
+02-specification_V
+03-conception
+04-realisation
+05-test
+06-userDoc
+07-ideeEnVrac
+08-rushs
+ 01-texts
+ 02-audio
+ 03-video
+ 04-pictures
+ 05-liensWeb
+
+ 05/10/2018:
+ à l'utilisation, il semble que le choix des répertoires ne soient pas si judicieux.
+ l'arbo projet de Pierre:
+openFile               # Dossier racine du projet (non versionner)
+|
++--project             # (branch master) contient l'ensemble du projet en lui même
+|  |
+|  +--_1_userDoc       # Contiens toute la documentation relative au projet
+|  |   |
+|  |   \--source       # Dossier réunissant les sources utilisées par Sphinx
+|  |
+|  +--_2_modelisation  # Contiens tous les plans et toutes les modélisations du projet
+|  |
+|  +--_3_software      # Contiens toute la partie programmation du projet
+|  |
+|  \--_4_PCB           # Contient toutes les parties des circuits imprimés (routage,
+|                      # implantation, typon, fichier de perçage, etc.
+|
+\--webDoc              # Dossier racine de la documentation qui doit être publiée
+   |
+   \--html             # (branch gh-pages) C'est dans ce dossier que Sphinx vat
+                       # générer la documentation a publié sur internet
+                       
+Cette arbo est très orientée github et sphinx
+Néanmoins, l'idée de placer le projet dans un sous répertoire est bonne 
+(évite les coches de premier niveau qui me gènent un peut)
+Copier systématiquement un fichier .gitignore préparer systématiquement 
+un fichier readme.rst ou .md est bonne mais quelle extension choisir ?
+rst c'est très pythonesque.
+
+https://pandoc.org/
+
+
+On pourrait également avoir les fichiers doxygen.
+_ devant les nom de répertoire est imposé par Sphinx
+Ci dessus, il manque : _5_techDoc_v, _6_research_v, _7_rushes et leur sous dossiers
+
+Nouvelle arbo à l'étude:
+
+Critiques : 19/10/18: l'inconvénient majeur est la profondeur des dossiers
+Pour accéder au doc source de la conception il faut descendre dans 3 niveaux
+Un contournement serait de faire remonter automatiquement les résultats produits
+au premier niveau d'arbo
+
+gitignore:
+
+## [ .gitignore ]
+
+## Liste des fichiers et dossiers à ignorer
+
+#.gitignore
+
+## [ Dossiers a ignorer ]
+00-*/
+01-conception/01-*/
+03_*/
+05_*/
+04-userDoc/01-*/
+05-*/
+06-*/
+**/99-*/
+**/98-*/
+*_v/
+
+## [ listes des extentions a ignorer ]
+*.FCStd1 
+*.264
+*.mkv
+*.mp4
+#*.json
+
+## Compiled source
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.pyc
+
+## Packages
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+## Logs and databases
+*.log
+*.sql
+*.sqlite
+
+## OS generated files
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+*.swp
+.*.swp
+*~
+*.lock
+*.out
+#*.stl
+*.gcode
+*.ffs_db
