@@ -1,0 +1,14 @@
+<NotepadPlus>
+    <Project name="nanoI2CSlaveExpander">
+        <File name="01-docs\01-userDoc\nanoI2CSlaveExpander.rst" />
+        <File name="02-realisation\01-software\nanoI2CIOExpander\nanoI2CIOExpander.ino" />
+        <File name="02-realisation\01-software\nanoI2CIOExpander\config.h" />
+        <File name="02-realisation\01-software\nanoI2CIOExpander\debugSerialPort.h" />
+        <Folder name="outilTest">
+            <File name="11-outils\i2CmasterForTest\SerialCommand.h" />
+            <File name="11-outils\i2CmasterForTest\Config.h" />
+            <File name="11-outils\i2CmasterForTest\i2CMasterForTest.ino" />
+            <File name="11-outils\i2CmasterForTest\SerialCommand.cpp" />
+        </Folder>
+    </Project>
+</NotepadPlus>
