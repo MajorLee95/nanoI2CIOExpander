@@ -15,23 +15,70 @@ Avancement
 #. I2C slave : réception testée : OK
 #. Etudier ce qu'il se passe au niveau des requête lors d'une demande d'accès en lecture OK
 #. Lecture / ecriture dans les registres : OK
-#. Ecriture terminée : à tester
+#. Write ended : to be tested (analog and digital)
+#. Write ARDUINO lib for use
+
+====================================
+ARDUINO lib
+====================================
+
+Once the nano is loaded with the project here, we need an ARDUINO lib to use it.
+
+Creation of the lib dev dir in 
+\projet\02-realisation\01-software
+
+name : nanoI2CIOExpLib
+
+Class name : CNanoI2CIOExpander 
+
+Needed method:
+
+- void begin( I2C_ADD default = 0x5F )
+- void pinMode( pin = 0 to 7 )
+- void digitalWrite( pin, STATE ) : STATE = LOW or HIGH, PIn 0 to 7
+- int digitalRead( pin )
+- int analogRead( A0 to A7 ) : warning there is diff with ARDUINO pin A0 to A3 and A7, A7
+A4 A5 excluded return 0
+
+==============================
+Tests
+==============================
+
+Test program
+====================================
+
+dev of i2CMasterForTest.ino
+
+in :
+
+050-nanoI2CSlaveExpander\projet\11-outils\i2CMasterForTest
+
+Passed tests
+==================
+
+R/W from to registers : ok
+
+<R5f 5>
+
+digital inputs : D3, D4 D5 D5 D6 D7 D8 D9
+
+<W5F 7 fe>
+
+inputs pullup : ok
+
+digital outputs : D2(0) ok
+
+analog input A0 75mV error on 1V and 218mV @2.5V, 326mV @4V
+
+analog globaly tested but not fully A1 ok, A2 ok with about the same error
+
+Address bits D10..D12 ok @58,59, 5C and 5e tested
 
 ====================================
 To do
 ====================================
 
 See doxygen doc @todo directive
-
-====================================
-Outil de test
-====================================
-
-Développement de i2CMasterForTest.ino
-
-dans :
-
-050-nanoI2CSlaveExpander\projet\11-outils\i2CMasterForTest
 
 ============================
 Base adresse
