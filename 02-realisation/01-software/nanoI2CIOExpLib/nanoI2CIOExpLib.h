@@ -78,12 +78,7 @@ class CFlasherNanoExp{
         void reverseMode();
         int getChangeStateCpt(){ return _changeStateCpt; }/**< @brief to stop flashing after a certain number of times*/
         void stop();
-        /*
-        void on();
-        void off(); //to inverse flashing
-        allwaysOn();
-        allwaysOff(); //<=> stop() ? no?
-        */
+
     private:
         CNanoI2CIOExpander _ioexp;
         int _componentAdd = 0x5F;
