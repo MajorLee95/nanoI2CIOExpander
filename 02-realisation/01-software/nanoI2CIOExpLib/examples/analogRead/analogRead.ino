@@ -7,7 +7,7 @@
 * @brief A analogRead to show of how to use the project nanoI2CIOExpander
 */
 
-#include <anoI2CIOExpLib.h>
+#include <nanoI2CIOExpLib.h>
 
 CNanoI2CIOExpander ioexp;
 

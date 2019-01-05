@@ -7,7 +7,7 @@
 * @brief A sample of how to use the CFlasherNanoExp class of the project nanoI2CIOExpander
 */
 
-#include <anoI2CIOExpLib.h>
+#include <nanoI2CIOExpLib.h>
 
 
 CFlasherNanoExp flashingLed;

@@ -8,7 +8,7 @@
 */
 
 
-#include <anoI2CIOExpLib.h>
+#include <nanoI2CIOExpLib.h>
 
 CNanoI2CIOExpander ioexp;
 
