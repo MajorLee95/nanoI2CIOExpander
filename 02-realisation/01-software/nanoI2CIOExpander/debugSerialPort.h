@@ -16,7 +16,7 @@ Debug mode switch. If it is defined we are in debug mode
 
 else we ar in no debug mode
 */
-#define DEBUG
+// #define DEBUG
 //comment to pass in non debug mode
 
 /**
