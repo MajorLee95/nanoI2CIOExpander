@@ -9,14 +9,14 @@ Conception de nanoI2CSlaveExpander
    :encoding: UTF-8
    
 ==============
-Avancement
+Progression
 ==============
 #. I2C master tools (dossier test) for test : OK
 #. I2C slave : réception testée : OK
 #. Etudier ce qu'il se passe au niveau des requête lors d'une demande d'accès en lecture OK
 #. Lecture / ecriture dans les registres : OK
-#. Write ended : to be tested (analog and digital)
-#. Write ARDUINO lib for use
+#. Write ended : to be tested (analog and digital) Ok
+#. Write ARDUINO lib for use Ok
 
 ====================================
 ARDUINO lib
