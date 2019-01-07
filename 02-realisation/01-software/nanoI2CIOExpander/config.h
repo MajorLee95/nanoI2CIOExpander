@@ -72,4 +72,4 @@ Warning D12 to D10 are internaly pulluped
 * @def ARDUINO_TYPE
 * @brief Only for debug display
 */
-#define ARDUINO_TYPE    "MEGA"
+#define ARDUINO_TYPE    "NANO"

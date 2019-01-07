@@ -11,4 +11,14 @@
             <File name="11-outils\i2CmasterForTest\SerialCommand.cpp" />
         </Folder>
     </Project>
+    <Project name="nanoI2CExpanderLib">
+        <File name="02-realisation\01-software\nanoI2CIOExpLib\library.properties" />
+        <File name="02-realisation\01-software\nanoI2CIOExpLib\license.txt" />
+        <File name="02-realisation\01-software\nanoI2CIOExpLib\README.md" />
+        <File name="02-realisation\01-software\nanoI2CIOExpLib\examples\nanoI2CexpSample\nanoI2CIOExpLib.h" />
+        <File name="02-realisation\01-software\nanoI2CIOExpLib\examples\nanoI2CexpSample\nanoI2CIOExpLib.cpp" />
+        <Folder name="examples">
+            <File name="02-realisation\01-software\nanoI2CIOExpLib\examples\nanoI2CexpSample\nanoI2CexpSample.ino" />
+        </Folder>
+    </Project>
 </NotepadPlus>

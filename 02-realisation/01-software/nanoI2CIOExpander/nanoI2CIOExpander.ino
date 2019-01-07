@@ -72,7 +72,7 @@ void setup(){
     //display Startup message
     DSP( dPrompt + String(ARDUINO_TYPE) + F(" version : ") + MA_VERSION +"."+MI_VERSION  );
     DSP(F(" : BUILD "));
-    DSP( (String)__DATE__ + " " + (String)__TIME__ + "\n");
+    DSPL( (String)__DATE__ + " " + (String)__TIME__ );
     DSPL( dPrompt + F("I2C adresse : ")+String(address, HEX) );
     Wire.begin( address );
     Wire.onReceive(receiveEvent); // register event
@@ -107,6 +107,9 @@ void loop(){
         DSPL( dPrompt + "Bytes rec : " + (String)octetsRec );
         DSPL( dPrompt + "reg = " + String(reg, HEX));
         DSPL( dPrompt + "registers[reg] = " + String(registers[reg], HEX) );
+        if ( reg == 8 ){
+            DSPL( "( (registers[5] & (1 << i) ) >> i ) avec i = 1 vaut " + (String)( (registers[5] & (1 << 1) ) >> 1 ) );
+        }
         octetsRec = 0;
     }
     updateDigitals();
@@ -229,7 +232,7 @@ void updateDigitals(){
     for ( int i = 0; i < 8 ; i++ ){
         if ( directions & (1 << i) ){ //output
             pinMode( i+2, OUTPUT );
-            digitalWrite( i+2, (registers[5] & (1 << i) >> i ) );
+            digitalWrite( i+2, ( ( registers[5] & (1 << i) ) >> i ) );
         } else {
             int mode = (pullups & (1 << i) )?INPUT_PULLUP:INPUT;
             pinMode( i+2, mode );

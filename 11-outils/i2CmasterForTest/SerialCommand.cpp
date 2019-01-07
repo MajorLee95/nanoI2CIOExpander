@@ -111,6 +111,7 @@ void SerialCommand::parse(char *com){
         Wire.write(reg);
         Wire.endTransmission();
         Wire.requestFrom(address, 1);
+        data = 255;
         while (Wire.available()) data = Wire.read();
         forDisplay += "<R @0x" + String(address, HEX);
         forDisplay += " REG : 0x" + String(reg, HEX);
