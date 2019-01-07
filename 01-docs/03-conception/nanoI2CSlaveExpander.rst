@@ -17,6 +17,8 @@ Progression
 #. Lecture / ecriture dans les registres : OK
 #. Write ended : to be tested (analog and digital) Ok
 #. Write ARDUINO lib for use Ok
+#. Test ARDUINO lib with ESP8266 : 
+#. Write the documentation tree :
 
 ====================================
 ARDUINO lib
