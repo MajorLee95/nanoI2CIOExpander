@@ -31,8 +31,7 @@ Don't forget to connect ground between the components.
 
 _tipsAutoGenArduinoList_addCarriageReturns
 
-* @todo implements analog and digital functionnality
-* @todo Add MEGA2560 more fonctionnality
+* @todo Add MEGA2560 more fonctionnalities (more analog and digital IO)
 
 */
 
