@@ -18,8 +18,9 @@ Description
 
 Use ARDUINO Nano as I2C Slave IO Digital and analog expander for ESP8266 or ESP32 for example
 
-This project contains the code for the ARDUINO Nano and an ARDUINO library to use it with a Flasher class to
-flash LED...
+This project contains the code for the ARDUINO Nano and an ARDUINO library to use.
+
+It also containt a Flasher class to flash LED connected to the nanoExpander...
 
 Use it and share it ;-)
 

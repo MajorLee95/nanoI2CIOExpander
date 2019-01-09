@@ -6,7 +6,9 @@
 * @version 1.0
 * @brief Un petit programme pour tester l'I2C io Expander
 
-Il s'agit d'un outil de test du projet pas du projet en lui-même
+Il s'agit d'un outil de test du projet pas du projet en lui-même.
+
+Upload it to the master (ie an ESP or a 2560) and use the serila monitor to pass the commands
 */
 #include <Wire.h>
 #include "SerialCommand.h"
