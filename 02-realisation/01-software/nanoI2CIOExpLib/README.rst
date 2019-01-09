@@ -4,7 +4,6 @@ VoLAB nanoI2CIoexpander library
 nanoI2CIoExpander 
 
 This library 
-<!-- START COMPATIBILITY TABLE -->
 
 ## Compatibility
 
@@ -19,9 +18,9 @@ This library
 +--------------------+--------------+--------------+-------------+-----------------------+ 
 | Atmega32u4 @ 8MHz  |              |              |      X      |                       |
 +--------------------+--------------+--------------+-------------+-----------------------+
-| ESP8266            |              |              |      X      |                       |
+| ESP8266            |       X      |              |             |                       |
 +--------------------+--------------+--------------+-------------+-----------------------+
-| Atmega2560 @ 16MHz |              |              |      X      |                       |
+| Atmega2560 @ 16MHz |       X      |              |             |                       |
 +--------------------+--------------+--------------+-------------+-----------------------+
 | ATSAM3X8E          |              |              |      X      | Use D20/D21.          |
 +--------------------+--------------+--------------+-------------+-----------------------+
@@ -47,4 +46,3 @@ This library
   * ATtiny85 @ 16MHz : Adafruit Trinket 5V
   * ATtiny85 @ 8MHz : Adafruit Gemma, Arduino Gemma, Adafruit Trinket 3V
 
-<!-- END COMPATIBILITY TABLE -->
