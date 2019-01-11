@@ -7,7 +7,7 @@ Informations générales nanoI2CSlaveExpander
 :Projet:               IoT_EPS
 :Version:              181123
 :dépôt GitHub:         https://github.com/MajorLee95/nanoI2CSlaveExpander
-:documentation:        
+:Source documentation:        https://majorlee95.github.io/nanoI2CIOExpander
 :Licence:              CC0
 :Liens:                https://creativecommons.org/licenses/by-nc-sa/4.0/
 
