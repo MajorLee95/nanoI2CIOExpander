@@ -9,6 +9,8 @@
 
 @section Documentation
 
+Github project page : https://github.com/MajorLee95/nanoI2CIOExpander
+
 Give you additionnal 8 digital in/out and 6 analog inputs 
 
 with a simple low cost ARDUINO nano
