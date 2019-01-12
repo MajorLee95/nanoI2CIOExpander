@@ -2,15 +2,10 @@
 User documentation of nanoI2CSlaveExpander
 ++++++++++++++++++++++++++++++++++++++++++++
 
-
-
 .. image:: ./image/fritzingCapture01_300_200.jpg
 
 .. contents:: Table of Contents
 .. section-numbering::
-
-.. include:: ../../README.rst
-   :encoding: UTF-8
 
 =======================================
 Install
@@ -18,13 +13,17 @@ Install
 
 Flash the code provided in the following dir in an ARDUINO Nano: 
 
-02-realisation\01-software\nanoI2CIOExpander
+.. code:: 
+
+    02-realisation\01-software\nanoI2CIOExpander
 
 Do connections provided below.
 
 Install the followinf provided lib in the ARDUINO IDE :
 
-02-realisation\01-software\nanoI2CIOExpLib
+.. code:: 
+
+    02-realisation\01-software\nanoI2CIOExpLib
 
 See `on arduino.cc`_ the procédure to manualy install the lib.
 
@@ -36,13 +35,41 @@ Run examples in the ESP8266 or in other ARDUINO (2560, UNO or an other Nano)
 Connections
 =======================================
 
+Connect ARDUINO nano pin A4 I2C SDA to SDA pin of your choosed master (Wemos D1 mini pin D2)
 
+Connect ARDUINO nano pin A5 I2C SCL to SCL pin of your choosed master (Wemos D1 mini pin D1)
+
+Dont forget the ground between the board !
+
+Normally I2C bus require some pull-up resitor to VCC abbout 4.7k. For me it works without !
+
+I verified Nano v3 schematics, i haven't seen them; nor on the Wemos. Perhaps somme internal pu ?
+
+Now with ARDUINO pin D2 to D9 you can drive LED or input button or drive relay or power mos transitor...
+
+And more inpurtant, you added 6 analog inputs to your system (Wemos D1) to read voltage level
+from analog sensor for example.
 
 =======================================
 Run example
 =======================================
 
+Choose from ARDUINO IDE, one of the provided examples : 
 
+analogRead, blink or flasher and download it to your target (Wemos for example)
+
+=======================================
+Lib API
+=======================================
+
+There is 2 class provided :
+
+- CNanoI2CIOExpander with pinMode, digitalRead, digitalWrite and nalogRead methods
+- CFlasherNanoExp that you can use to creat LEDs flasher
+
+For more informations on software provided don't forget to read `Doxygen generated documentation`_.
+
+.. _`Doxygen generated documentation` : https://majorlee95.github.io/nanoI2CIOExpander
 
 =======================================
 Other usefull informations
@@ -67,6 +94,7 @@ Provided method:
 - void digitalWrite( pin, STATE ) : STATE = LOW or HIGH, PIn 0 to 7
 - int digitalRead( pin )
 - int analogRead( A0 to A7 ) : warning there is diff with ARDUINO pin A0 to A3 and A6, A7
+
 A4 A5 excluded return 0
 
 Test program
