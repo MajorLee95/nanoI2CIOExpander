@@ -24,6 +24,7 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "nanoI2CSlaveExpander", "index.html", [
+    [ "licence", "index.html#licence", null ],
     [ "Documentation", "index.html#Documentation", null ],
     [ "Exemples", "index.html#Exemples", null ],
     [ "Lib dependencies", "index.html#dependencies", null ],
