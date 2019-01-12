@@ -2,6 +2,8 @@
 Informations générales nanoI2CSlaveExpander
 ==============================================
 
+.. image:: fritzingCaptur01_wikiVigSize.jpg
+
 :Auteur:               MajorLee
 :Site_Web:             https://www.volab.org
 :Projet:               IoT_EPS
