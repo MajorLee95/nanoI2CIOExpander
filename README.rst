@@ -1,5 +1,5 @@
 ==============================================
-Informations générales nanoI2CSlaveExpander
+General informations for nanoI2CSlaveExpander
 ==============================================
 
 .. image:: fritzingCaptur01_wikiVigSize.jpg
@@ -38,7 +38,8 @@ Project tree
 
 .. code::
 
-    \01-docs\01-userDoc     # Conception documentation (sorry there is somme little peaces in French)
+    \01-docs\01-userDoc     # User documentation 
+    \01-docs\03-conceptionDoc # Conception documentation provide as is (sory there is somme little peaces in French)
     \02-realisation\01-software\nanoI2CIOExpander # source codes to upload in ARDUINO Nano
     \02-realisation\01-software\nanoI2CIOExpLib # The library to use it
     
