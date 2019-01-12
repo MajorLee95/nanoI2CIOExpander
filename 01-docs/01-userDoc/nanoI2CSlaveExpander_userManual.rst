@@ -2,6 +2,10 @@
 User documentation of nanoI2CSlaveExpander
 ++++++++++++++++++++++++++++++++++++++++++++
 
+
+
+.. image:: ./image/fritzingCapture01_300_200.jpg
+
 .. contents:: Table of Contents
 .. section-numbering::
 
@@ -29,8 +33,9 @@ See `on arduino.cc`_ the procédure to manualy install the lib.
 Run examples in the ESP8266 or in other ARDUINO (2560, UNO or an other Nano)
 
 =======================================
-Connect
+Connections
 =======================================
+
 
 
 =======================================
