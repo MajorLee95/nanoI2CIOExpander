@@ -39,15 +39,15 @@ Connect ARDUINO nano pin A4 I2C SDA to SDA pin of your choosed master (Wemos D1 
 
 Connect ARDUINO nano pin A5 I2C SCL to SCL pin of your choosed master (Wemos D1 mini pin D1)
 
-Dont forget the ground between the board !
+Dont forget the ground between the 2 boards !
 
-Normally I2C bus require some pull-up resitor to VCC abbout 4.7k. For me it works without !
+Normally I2C bus requires some pull-up resitor to VCC abbout 4.7k. For me it works without !
 
 I verified Nano v3 schematics, i haven't seen them; nor on the Wemos. Perhaps somme internal pu ?
 
 Now with ARDUINO pin D2 to D9 you can drive LED or input button or drive relay or power mos transitor...
 
-And more inpurtant, you added 6 analog inputs to your system (Wemos D1) to read voltage level
+And more inportant, you added 6 analog inputs to your system (Wemos D1) to read voltage level
 from analog sensor for example.
 
 =======================================

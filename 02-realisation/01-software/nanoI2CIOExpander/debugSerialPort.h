@@ -3,7 +3,7 @@
 * @author J.SORANZO
 * @date about september 2018
 * @copyright 2018 CC0
-* @version 1.0
+* @version gitversionning
 * @brief all macros that i use tu print debug message on ARUDINO
 */
 
