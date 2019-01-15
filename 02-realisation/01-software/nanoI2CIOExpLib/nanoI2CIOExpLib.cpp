@@ -1,7 +1,7 @@
 /**
  @file nanoI2CIOExpLib.cpp
  @author J.SORANZO
- @date _date
+ @date 8/01/2019
  @copyright 2018 CC0
  @version git versionning
  @brief implementation file of the class CNanoI2CIOExpander
