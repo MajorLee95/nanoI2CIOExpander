@@ -4,16 +4,21 @@ General informations for nanoI2CSlaveExpander
 
 .. image:: fritzingCaptur01_wikiVigSize.jpg
 
-:Auteur:               MajorLee
+Picture made with `Fritzing`_
+
+.. _`Fritzing` : http://fritzing.org/home/
+
+
+:Autor:                MajorLee
 :Site_Web:             https://www.volab.org
-:Projet:               IoT_EPS
-:Version:              181123
-:dépôt GitHub:         https://github.com/MajorLee95/nanoI2CSlaveExpander
-:Source Code doc:      https://majorlee95.github.io/nanoI2CIOExpander
+:Project:              IoT_EPS
+:Version:              190115
+:GitHub repo:          https://github.com/MajorLee95/nanoI2CSlaveExpander
+:Source doc:           https://majorlee95.github.io/nanoI2CIOExpander
 :User doc:             https://github.com/MajorLee95/nanoI2CIOExpander/tree/master/01-docs/01-userDoc
 :Conception doc:       https://github.com/MajorLee95/nanoI2CIOExpander/tree/master/01-docs/03-conception
 :Licence:              CC0
-:Liens:                https://creativecommons.org/licenses/by-nc-sa/4.0/
+:Lic link:             https://creativecommons.org/publicdomain/zero/1.0/deed.en
 
 ####
 
@@ -27,6 +32,10 @@ This project contains the code for the ARDUINO Nano and an ARDUINO library to us
 It also contains a Flasher class to flash LED connected to the nanoExpander...
 
 Use it and share it ;-)
+
+Please refere to `User documentation`_
+
+.. _`User documentation` : https://github.com/MajorLee95/nanoI2CIOExpander/tree/master/01-docs/01-userDoc
 
 Enjoy
 

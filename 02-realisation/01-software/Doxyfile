@@ -44,14 +44,14 @@ PROJECT_NUMBER         =
 # for a project that appears at the top of each page and should give viewer a
 # quick idea about the purpose of the project. Keep the description short.
 
-PROJECT_BRIEF          = "ARDUINO Nano v3 used as I2C slace digital and analog io expander"
+PROJECT_BRIEF          = "ARDUINO Nano v3 used as I2C slace digital and analog io expander for ESP8266 and others..."
 
 # With the PROJECT_LOGO tag one can specify a logo or an icon that is included
 # in the documentation. The maximum height of the logo should not exceed 55
 # pixels and the maximum width should not exceed 200 pixels. Doxygen will copy
 # the logo to the output directory.
 
-PROJECT_LOGO           = 
+PROJECT_LOGO           = C:/MountWD/Donnees/OneDrive/Donnees/008_iao_wrk/VoRoboticsAsso/00-ProjetsPerso/050-nanoI2CSlaveExpander/projet/02-realisation/01-software/fritzingCapture01_300_200.jpg
 
 # The OUTPUT_DIRECTORY tag is used to specify the (relative or absolute) path
 # into which the generated documentation will be written. If a relative path is
