@@ -13,7 +13,7 @@ Picture made with `Fritzing`_
 :Site_Web:             https://www.volab.org
 :Project:              IoT_EPS
 :Version:              190115
-:GitHub repo:          https://github.com/MajorLee95/nanoI2CSlaveExpander
+:GitHub repo:          https://github.com/MajorLee95/nanoI2CIOExpander
 :Source doc:           https://majorlee95.github.io/nanoI2CIOExpander
 :User doc:             https://github.com/MajorLee95/nanoI2CIOExpander/tree/master/01-docs/01-userDoc
 :Conception doc:       https://github.com/MajorLee95/nanoI2CIOExpander/tree/master/01-docs/03-conception
