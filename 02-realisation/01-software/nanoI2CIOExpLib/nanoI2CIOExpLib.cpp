@@ -1,7 +1,7 @@
 /**
  @file nanoI2CIOExpLib.cpp
  @author J.SORANZO
- @date _date
+ @date 8/01/2019
  @copyright 2018 CC0
  @version git versionning
  @brief implementation file of the class CNanoI2CIOExpander
@@ -25,7 +25,7 @@ bool CNanoI2CIOExpander::initOk = false;
  Can be fixed from 0x58 to 0x5F with D12D10D11 pin of the Nano
  Adress pin are pulled-up to 5V (so no connect value is 1)
 */
-void CNanoI2CIOExpander::begin( int add = 0x5F ){
+void CNanoI2CIOExpander::begin( int add ){
     Wire.begin();
     Wire.beginTransmission(NANOEXP_ADDRESS);
     if ( Wire.endTransmission() ) return;

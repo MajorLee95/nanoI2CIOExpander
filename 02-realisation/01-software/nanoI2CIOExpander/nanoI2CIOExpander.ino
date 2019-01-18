@@ -3,11 +3,19 @@
 @mainpage
 * @author J.Soranzo
 * @date December 2018
-* @copyright 2018 MIT
+* @copyright 2018 CC0
 * @version see config.h
 * @brief ARDUINO Nano as I2C  analog and digital IO expander 
 
+@section licence 
+
+This software is under CC0
+
+https://creativecommons.org/publicdomain/zero/1.0/legalcode.fr
+
 @section Documentation
+
+Github project page : https://github.com/MajorLee95/nanoI2CIOExpander
 
 Give you additionnal 8 digital in/out and 6 analog inputs 
 
@@ -15,7 +23,7 @@ with a simple low cost ARDUINO nano
 
 more with a MEAG2560 but not tested and not implemented
 
-Very useful for ESP8266 with its only on analog input
+Very useful for ESP8266 with its only one analog input
 
 I2C base address is in the config.h and completed by D12..D10 pin with internal pullup
 
@@ -31,8 +39,7 @@ Don't forget to connect ground between the components.
 
 _tipsAutoGenArduinoList_addCarriageReturns
 
-* @todo implements analog and digital functionnality
-* @todo Add MEGA2560 more fonctionnality
+* @todo Add MEGA2560 more fonctionnalities (more analog and digital IO)
 
 */
 

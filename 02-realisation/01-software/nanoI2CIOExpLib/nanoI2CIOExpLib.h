@@ -56,6 +56,10 @@ This class is for flashing led with no delay function call with diffrents ton an
 
 In setup or elsewhere create a Flasher instance  i and call i.begin( pin, ton, toff )
 
+Or begin( pin, ton, toff, repeat, period ) to flash n time in the period.
+
+reverseMode() can be used to inverse on and off times.
+
 They are no default values.
 
 In a loop call i.update();
@@ -64,8 +68,6 @@ To return to led off and stop flashing you can call i.stop()
 
 i.getChangeStateCpt() can be used to flash a certain number of times
 
- @todo implement begin( pin, ton, toff, repeat, period ) exemple 3 short flash every 3 seconds
- @todo implement the same but when on, exemple 3 short off every 3 seconds
  @todo allways on
 */
 class CFlasherNanoExp{

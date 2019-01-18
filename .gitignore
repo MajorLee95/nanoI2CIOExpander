@@ -66,5 +66,6 @@ Thumbs.db
 *~
 *.lock
 *.out
-/02-realisation/01-software/doc
-/02-realisation/01-software/doc/html/index.html
+/02-realisation/01-software/doc/
+*.lnk
+/10-rushs
