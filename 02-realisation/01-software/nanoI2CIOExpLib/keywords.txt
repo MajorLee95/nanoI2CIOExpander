@@ -1,0 +1,38 @@
+###########################################
+# Syntax Coloring Map For nanoI2CIOExpLib
+###########################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+CNanoI2CIOExpander	KEYWORD1
+CFlasherNanoExp	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin	KEYWORD2
+pinMode	KEYWORD2
+analogRead	KEYWORD2
+digitalRead	KEYWORD2
+digitalWrite	KEYWORD2
+test	KEYWORD2
+initOk	KEYWORD2
+update	KEYWORD2
+reverseMode	KEYWORD2
+getChangeStateCpt	KEYWORD2
+stop	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+MAJVER	LITERAL1
+REGTEST1	LITERAL1
+REGTEST2	LITERAL1
+REGTEST3	LITERAL1
+DDR	LITERAL1
+DR	LITERAL1
+MINVER	LITERAL1
+PULLUP	LITERAL1

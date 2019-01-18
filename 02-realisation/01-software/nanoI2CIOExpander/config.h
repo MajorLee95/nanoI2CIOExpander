@@ -2,7 +2,7 @@
 * @file config.h
 * @author J.SORANZO
 * @date 03/12/2018
-* @copyright 2018 MIT
+* @copyright 2018 CC0
 * @version git versionning
 * @brief nanoI2CIOexpander porject configuration file
 */
@@ -72,4 +72,4 @@ Warning D12 to D10 are internaly pulluped
 * @def ARDUINO_TYPE
 * @brief Only for debug display
 */
-#define ARDUINO_TYPE    "MEGA"
+#define ARDUINO_TYPE    "NANO"
