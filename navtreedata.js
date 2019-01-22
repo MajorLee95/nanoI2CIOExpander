@@ -28,6 +28,7 @@ var NAVTREE =
     [ "Documentation", "index.html#Documentation", null ],
     [ "Exemples", "index.html#Exemples", null ],
     [ "Lib dependencies", "index.html#dependencies", null ],
+    [ "VoLAB nanoI2CIoexpander library", "md_nano_i2_c_i_o_exp_lib__r_e_a_d_m_e.html", null ],
     [ "Todo List", "todo.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
