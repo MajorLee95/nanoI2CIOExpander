@@ -37,7 +37,7 @@ Don't forget to connect ground between the components.
 
 @section dependencies Lib dependencies
 
-_tipsAutoGenArduinoList_addCarriageReturns
+no depencies
 
 * @todo Add MEGA2560 more fonctionnalities (more analog and digital IO)
 
