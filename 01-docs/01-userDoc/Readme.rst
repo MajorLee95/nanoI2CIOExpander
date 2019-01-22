@@ -19,7 +19,7 @@ Flash the code provided in the following dir in an ARDUINO Nano:
 
 Do connections provided below.
 
-Install the followinf provided lib in the ARDUINO IDE :
+Install the following provided lib in the ARDUINO IDE :
 
 .. code:: 
 
