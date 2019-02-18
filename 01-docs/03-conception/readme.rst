@@ -9,7 +9,7 @@ Conception de nanoI2CSlaveExpander
    :encoding: UTF-8
    
 ==============
-Progression
+Progretion
 ==============
 #. I2C master tools (dossier test) for test : OK
 #. I2C slave : réception testée : OK
@@ -17,9 +17,17 @@ Progression
 #. Lecture / ecriture dans les registres : OK
 #. Write ended : to be tested (analog and digital) Ok
 #. Write ARDUINO lib for use Ok
-#. Test ARDUINO lib with ESP8266 : 
-#. Write the documentation tree :
-#. finish user manual (wiring Fritzing)
+#. Test ARDUINO lib with ESP8266 : ok
+#. Write the documentation tree : ok
+#. finish user manual (wiring Fritzing) ok
+
+=================================
+On feb 2019 possible evolutions
+=================================
+#. implement nano EEPROM acces through I2C bus (and creat lib objects and methodes) 
+#. implement nano UART acces 
+#. add 3 digital I/O for the ESP plug project (D10-D11-D12) component address chose with D13 limite
+number of same components on the same bus to two. (ok in version 2)
 
 ====================================
 ARDUINO lib
@@ -36,12 +44,22 @@ Class name : CNanoI2CIOExpander
 
 Needed method:
 
-- void begin( I2C_ADD default = 0x5F )
-- void pinMode( pin = 0 to 7 )
-- void digitalWrite( pin, STATE ) : STATE = LOW or HIGH, PIn 0 to 7
+- void begin( I2C_ADD default = 0x58 )
+- void pinMode( pin = 0 to 10 )
+- void digitalWrite( pin, STATE ) : STATE = LOW or HIGH, PIn 0 to 10
 - int digitalRead( pin )
 - int analogRead( A0 to A7 ) : warning there is diff with ARDUINO pin A0 to A3 and A7, A7
 A4 A5 excluded return 0
+
+
+==============================
+Tips on Arduino lib creation
+==============================
+As #include doasen't support relative path and that the ARDUINO lib structure requires
+to put examples file in the sub directory "examples", it is impossible to work on examples without
+copying source lib files in the exampes directory. So for working on examples purpose I move 
+the lib files in the examples directory and when the work is finished I move these files in the 
+upper lib directory
 
 ==============================
 Tests
@@ -115,6 +133,18 @@ Pining
 - D2..D9 : 8 digital IO
 - D10..D12 : I2C low address bits (default 1 with internal pullup)
 - D13 bultin LED
+- A4-A5 I2C pin
+- A0-A3 : 4 analog inputs
+- A6-A7 : 2 analog inouts
+
+================
+V2 Pining
+================
+
+- D0-D1 :<=> RX-TX for download and debug
+- D2..D9 : 8 digital IO
+- D10..D12 : 3 more digital IOs with new registers
+- D13 I2C address complement
 - A4-A5 I2C pin
 - A0-A3 : 4 analog inputs
 - A6-A7 : 2 analog inouts

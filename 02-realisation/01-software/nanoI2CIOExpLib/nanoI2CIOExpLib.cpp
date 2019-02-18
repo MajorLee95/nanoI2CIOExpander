@@ -11,19 +11,19 @@
 #include <Wire.h>
 #include "nanoI2CIOExpLib.h"
 
-#define NANOEXP_ADDRESS 0x5F
+#define NANOEXP_ADDRESS 0x58
 
 bool CNanoI2CIOExpander::initOk = false;
 
 /** 
- @fn void CNanoI2CIOExpander::begin( int add = 0x5F )
+ @fn void CNanoI2CIOExpander::begin( int add = 0x58 )
  @brief function that start the I2C protocol with nanoI2CIOExpander
  @param add the I2C address of the componant...
  @return nothing
  
- The default address of the componant is 0x5F 
- Can be fixed from 0x58 to 0x5F with D12D10D11 pin of the Nano
- Adress pin are pulled-up to 5V (so no connect value is 1)
+ The default address of the componant is 0x58
+ Can be fixed from 0x58 to 0x59 with D12D10D11 pin of the Nano
+ The only one adress pin D13 is pulled-down (so no connect value is 0)
 */
 void CNanoI2CIOExpander::begin( int add ){
     Wire.begin();
@@ -38,28 +38,34 @@ void CNanoI2CIOExpander::begin( int add ){
 /** 
  @fn void CNanoI2CIOExpander::pinMode( int output, int mode)
  @brief A method to set the pinMode but...
- @param output from 0 to 7
+ @param output from 0 to 10
  @param mode INPUT, OUTPUT or INPUT_PULLUP
  @return nothing
  
-  @warning input number from 0 to 7 corresponding to D2 to D9 on the nano
+  @warning input number from 0 to 10 corresponding to D2 to D12 on the nano
 */
 void CNanoI2CIOExpander::pinMode( int output, int mode){
-    if ( output > 7 ) return;
+    if ( output > 12 ) return;
+    int regAdd;
+    int regPuAdd;
+    int bitNumber;
+    bitNumber = output<=7?output:output-8;
+    regPuAdd = output<=7?PULLUP:PULLUP2;
+    regAdd = output<=7?DDR:DDR2;
     int DDRVal;
     int pullupVal;
-    DDRVal = readRegister( DDR );
-    pullupVal = readRegister( PULLUP );
+    DDRVal = readRegister( regAdd );
+    pullupVal = readRegister( regPuAdd );
     if ( mode == INPUT ) {
-        bitClear( DDRVal, output );
-        bitClear( pullupVal, output );
-    } else if (mode == OUTPUT) bitSet( DDRVal, output );
+        bitClear( DDRVal, bitNumber );
+        bitClear( pullupVal, bitNumber );
+    } else if (mode == OUTPUT) bitSet( DDRVal, bitNumber );
     else if (mode == INPUT_PULLUP ){
-        bitClear( DDRVal, output );
-        bitSet( pullupVal, output ); 
+        bitClear( DDRVal, bitNumber );
+        bitSet( pullupVal, bitNumber ); 
     }
-    writeRegister( DDR, DDRVal );
-    writeRegister( PULLUP, pullupVal );
+    writeRegister( regAdd, DDRVal );
+    writeRegister( regPuAdd, pullupVal );
 }
 
 /** 
@@ -68,19 +74,27 @@ void CNanoI2CIOExpander::pinMode( int output, int mode){
  @param input the number of the input
  @return the read value
 
- @warning input number from 0 to 7 corresponding to D2 to D9 on the nano
+ @warning input number from 0 to 10 corresponding to D2 to D12 on the nano
 */
 int CNanoI2CIOExpander::digitalRead( int input ){
-    int DRVal = readRegister( DR );
-    return (int)bitRead( DRVal, input );
+    if ( input > 12 ) return 0;
+    int DRVal;
+    int regAdd;
+    regAdd = input<=7?DR:DR2;
+    DRVal = readRegister( regAdd );
+    return (int)bitRead( DRVal, input<=7?input:input-8 );
 }
 
 void CNanoI2CIOExpander::digitalWrite( int output, int value ){
+    if ( output > 12 ) return;
     int DRVal;
-    DRVal = readRegister( DR );
-    if (value) bitSet ( DRVal, output );
-    else bitClear(DRVal, output);
-    writeRegister( DR, DRVal );
+    int regAdd;
+    // if ( input <= 7 ) regAdd = DR;
+    regAdd = output<=7?DR:DR2;
+    DRVal = readRegister( regAdd );
+    if (value) bitSet ( DRVal, output<=7?output:output-8 );
+    else bitClear(DRVal, output<=7?output:output-8);
+    writeRegister( regAdd, DRVal );
     
 }
 

@@ -37,7 +37,7 @@ Don't forget to connect ground between the components.
 
 @section dependencies Lib dependencies
 
-no depencies
+ Wire version 1.0
 
 * @todo Add MEGA2560 more fonctionnalities (more analog and digital IO)
 
@@ -71,7 +71,7 @@ Initialize registers
 Display initialized registers
 */
 void setup(){
-    int address = i2cBuildAddress();
+    
     
     DEBUGPORT.begin( DEBUGSPEED );
     
@@ -80,6 +80,7 @@ void setup(){
     DSP( dPrompt + String(ARDUINO_TYPE) + F(" version : ") + MA_VERSION +"."+MI_VERSION  );
     DSP(F(" : BUILD "));
     DSPL( (String)__DATE__ + " " + (String)__TIME__ );
+    int address = i2cBuildAddress();
     DSPL( dPrompt + F("I2C adresse : ")+String(address, HEX) );
     Wire.begin( address );
     Wire.onReceive(receiveEvent); // register event
@@ -150,6 +151,9 @@ void receiveEvent(int howMany) {
             case 4:
             case 5:
             case 7:
+            case 8:
+            case 9:
+            case 10:
                 registers[ reg ] = data;
                 break;
         }
@@ -184,6 +188,9 @@ void regInit(){
     registers[3] = 0x55;
     registers[4] = 0;
     registers[7] = 0;
+    registers[8] = 0;
+    registers[9] = 0;
+    registers[10] = 0;
     registers[24] = 0xCA;
     registers[25] = 0xFE;
     registers[26] = 0xFE;
@@ -197,12 +204,16 @@ void regInit(){
 */
 int i2cBuildAddress(){
     int address = I2CADD ;
-    pinMode( I2CHIGHADD, INPUT_PULLUP );
-    pinMode( I2CMIDADD, INPUT_PULLUP );
-    pinMode( I2CLOWADD, INPUT_PULLUP );
+    //v2 chnage
+    // pinMode( I2CHIGHADD, INPUT_PULLUP );
+    // pinMode( I2CMIDADD, INPUT_PULLUP );
+    DEFDPROMPT("I2C ADD builder");
     
-    address |= digitalRead( I2CHIGHADD ) << 2;
-    address |= digitalRead( I2CMIDADD ) << 1;
+    pinMode( I2CLOWADD, INPUT_PULLUP );
+    DSPL( dPrompt + "add pin number = " + String(I2CLOWADD) );
+    // address |= digitalRead( I2CHIGHADD ) << 2;
+    // address |= digitalRead( I2CMIDADD ) << 1;
+    DSPL( dPrompt + "D13 = " + String(digitalRead( I2CLOWADD )?"HIGH":"LOW") );
     address |= digitalRead( I2CLOWADD );
     return address;
 }
@@ -244,6 +255,21 @@ void updateDigitals(){
             int mode = (pullups & (1 << i) )?INPUT_PULLUP:INPUT;
             pinMode( i+2, mode );
             bitWrite( registers[5], i, digitalRead( i+2) );
+        }
+    }
+    
+    //v2.0 add 3 digital i/O on D10, D11, D12
+    directions = registers[8];
+    //data are on registers[9]
+    pullups = registers[10];
+    for ( int i = 0; i < 3 ; i++ ){
+        if ( directions & (1 << i) ){ //output
+            pinMode( i+10, OUTPUT );
+            digitalWrite( i+10, ( ( registers[9] & (1 << i) ) >> i ) );
+        } else {
+            int mode = (pullups & (1 << i) )?INPUT_PULLUP:INPUT;
+            pinMode( i+10, mode );
+            bitWrite( registers[9], i, digitalRead( i+10) );
         }
     }
 }

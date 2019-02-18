@@ -20,6 +20,9 @@
 #define DR 0x05 // digital DATA (R/W) a write on input bit has no effect
 #define MINVER 0x06 // Minor version (RO)
 #define PULLUP 0x07 // puulup reg (R/W) : 1 pullup is enable, default = 0
+#define DDR2 0x08
+#define DR2 0x09
+#define PULLUP2 0x0A
 
 // 0x08 to 0x0F : reserved (read data 0xA5)
 

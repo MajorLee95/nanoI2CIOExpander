@@ -17,7 +17,7 @@ This version is manualy udated
 * @brief Minor version
 
 */
-#define MA_VERSION 1 /**< The major part of version number*/
+#define MA_VERSION 2 /**< The major part of version number*/
 #define MI_VERSION 1 /**< The minor Part of the version*/
 
 /**
@@ -31,9 +31,12 @@ This version is manualy udated
 - 0x04 : DDR (R/W) 1 for output, default 0
 - 0x05 : digital DATA (R/W) a write on input bit has no effect
 - 0x06 : Minor version (RO)
-- 0x07 : puulup reg (R/W) : 1 pullup is enable, default = 0
-- 0x08 to 0x0F : reserved (read data 0xA5)
-
+- 0x07 : pullup reg (R/W) : 1 pullup is enable, default = 0
+//v2 change
+- 0x08 : DDR2
+- 0x09 : DATA2
+- 0x0A : PULLUP2
+- 0x0B to 0x0F : reserved (read data 0xA5)
 
 - 0x10, 0x11 : A0 low, high (RO)
 - 0x12, 0x13 : A1 low, high (RO)
@@ -47,7 +50,8 @@ This version is manualy udated
 RO : Read Only
 R/W : Read and Write enabled registers
 
-Writable registers are : 1,2,4,5 and 7
+v2 change
+Writable registers are : 1,2,4,5 and 7 8, 9 and A
 */
 #define MAXREG 32
 
@@ -63,9 +67,10 @@ Warning D12 to D10 are internaly pulluped
 
 */
 #define I2CADD 0x58
-#define I2CHIGHADD 12
-#define I2CMIDADD 11
-#define I2CLOWADD 10
+//v2 change
+// #define I2CHIGHADD 12
+// #define I2CMIDADD 11
+#define I2CLOWADD 13
 
 
 /**
