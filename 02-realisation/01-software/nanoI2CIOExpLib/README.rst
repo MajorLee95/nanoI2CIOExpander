@@ -1,6 +1,8 @@
 VoLAB nanoI2CIoexpander library
 =================================
 
+v2.1: improv test fonction with a booleen return code
+
 nanoI2CIoExpander 
 
 This library 

@@ -1,7 +1,7 @@
 /**
  @file nanoI2CIOExpLib.cpp
  @author J.SORANZO
- @date 8/01/2019
+ @date 21/03/2019
  @copyright 2018 CC0
  @version git versionning
  @brief implementation file of the class CNanoI2CIOExpander
@@ -160,19 +160,22 @@ void CNanoI2CIOExpander::writeRegister( int add, int val){
  @fn void CNanoI2CIOExpander::test()
  @brief A special test method that use 2 special register to write and read and display 
  on the Serial monitor results...
- @return no return value and no parameter
+ @return true if all test is OK (new in 2.1 lib)
  
  first write 0x10 to register Test1 (reg add = 1)
  and write 0x12 to register Test2 (reg add = 2)
  and re-read the values and display them on Serial monitor
 */
-void CNanoI2CIOExpander::test(){
+bool CNanoI2CIOExpander::test(){
     Serial.println( "Write 0x10 to 1");
     writeRegister(1, 0X10);
     Serial.println( "Write 0x12 to 2");
     writeRegister(2, 0X12);
-    Serial.println( "Read of reg 1 = " + String( readRegister(1), HEX  ) );
-    Serial.println( "Read of reg 2 = " + String( readRegister(2), HEX  ) );
+    int retValReg1 = readRegister(1);
+    int retValReg2 = readRegister(2);
+    Serial.println( "Read of reg 1 = " + String( retValReg1, HEX  ) );
+    Serial.println( "Read of reg 2 = " + String( retValReg2, HEX  ) );
+    return ( (retValReg1 == 0X10) && (retValReg2 == 0X12) );
 }
 
 /** 
@@ -193,10 +196,12 @@ void CFlasherNanoExp::begin( int pin, unsigned long ton, unsigned long toff){
     _ledState = 0;
     _previousMillis = 0;
     _changeStateCpt = 0;
+    Serial.println( "ici ");
     _ioexp.digitalWrite( _pin, _ledState );
     // _reverse= false;
     _offLevel = 0;
-    _onLevel = 1;  
+    _onLevel = 1;
+    _flashingMode = true;
     
 }
 
@@ -236,39 +241,41 @@ Function check time with millis function and switch LED if necessary
 */
 void CFlasherNanoExp::update(){
     // probably there is a best way to do this in more efficient codding style
-    if ( _repeat ){ //repeat mode
-        if ( _repeatCount < _repeat ){
+    if ( _flashingMode ){
+        if ( _repeat ){ //repeat mode
+            if ( _repeatCount < _repeat ){
+                if ( (millis()-_previousMillis  > _ton) && (_ledState == _onLevel) ){
+                    _ledState = _offLevel;
+                    _previousMillis = millis();
+                    _ioexp.digitalWrite( _pin, _ledState );
+                    _changeStateCpt++;
+                    _repeatCount++;
+                } else if ( (millis()-_previousMillis  > _toff) && (_ledState == _offLevel) ){
+                    _ledState = _onLevel ;       
+                    _previousMillis = millis();
+                    _ioexp.digitalWrite( _pin, _ledState );
+                    _changeStateCpt++; 
+                } 
+            } else if ( millis()-_previousPeriod > _period ){
+                _previousPeriod = millis();
+                _repeatCount = 0;
+                _previousMillis = millis();
+            }
+            
+        } else { //normal mode
             if ( (millis()-_previousMillis  > _ton) && (_ledState == _onLevel) ){
                 _ledState = _offLevel;
                 _previousMillis = millis();
                 _ioexp.digitalWrite( _pin, _ledState );
                 _changeStateCpt++;
-                _repeatCount++;
             } else if ( (millis()-_previousMillis  > _toff) && (_ledState == _offLevel) ){
                 _ledState = _onLevel ;       
                 _previousMillis = millis();
                 _ioexp.digitalWrite( _pin, _ledState );
-                _changeStateCpt++; 
-            } 
-        } else if ( millis()-_previousPeriod > _period ){
-            _previousPeriod = millis();
-            _repeatCount = 0;
-            _previousMillis = millis();
-        }
-        
-    } else { //normal mode
-        if ( (millis()-_previousMillis  > _ton) && (_ledState == _onLevel) ){
-            _ledState = _offLevel;
-            _previousMillis = millis();
-            _ioexp.digitalWrite( _pin, _ledState );
-            _changeStateCpt++;
-        } else if ( (millis()-_previousMillis  > _toff) && (_ledState == _offLevel) ){
-            _ledState = _onLevel ;       
-            _previousMillis = millis();
-            _ioexp.digitalWrite( _pin, _ledState );
-            _changeStateCpt++;
-        }    
-    }   
+                _changeStateCpt++;
+            }    
+        }      
+    }
 }
 
 /** 
@@ -289,7 +296,8 @@ void CFlasherNanoExp::stop(){
     _previousPeriod = 0;
     // _reverse= false;
     _offLevel = 0;
-    _onLevel = 1;    
+    _onLevel = 1; 
+    _flashingMode = false;
 }
 
 /** 
@@ -305,4 +313,26 @@ void CFlasherNanoExp::reverseMode(){
     _offLevel = _onLevel;
     _onLevel = tmp;   
 
+}
+
+/** 
+ @fn void CFlasherNanoExp::high()
+ @brief to put led allways at ON state
+ @return no return value and no parameter
+*/
+void CFlasherNanoExp::high(){
+    _ioexp.pinMode( _pin, OUTPUT );
+    _ioexp.digitalWrite( _pin, 1 );
+    _flashingMode = false;
+}
+
+/** 
+ @fn void CFlasherNanoExp::low()
+ @brief to put led allways at OFF state
+ @return no return value and no parameter
+*/
+void CFlasherNanoExp::low(){
+    _ioexp.pinMode( _pin, OUTPUT );
+    _ioexp.digitalWrite( _pin, 0 );
+    _flashingMode = false;
 }

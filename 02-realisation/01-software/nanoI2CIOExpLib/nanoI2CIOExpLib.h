@@ -44,7 +44,8 @@ class CNanoI2CIOExpander{
         void digitalWrite( int output, int value );
         int analogRead( int input);
         static bool initOk;
-        void test();
+        bool test();
+
 
     private:
         int readRegister( int add );
@@ -71,7 +72,7 @@ To return to led off and stop flashing you can call i.stop()
 
 i.getChangeStateCpt() can be used to flash a certain number of times
 
- @todo allways on
+to put LEd allways on or off call i.high() and i.low() method
 */
 class CFlasherNanoExp{
     public:    
@@ -83,6 +84,8 @@ class CFlasherNanoExp{
         void reverseMode();
         int getChangeStateCpt(){ return _changeStateCpt; }/**< @brief to stop flashing after a certain number of times*/
         void stop();
+        void high();
+        void low();
 
     private:
         CNanoI2CIOExpander _ioexp;
@@ -100,6 +103,7 @@ class CFlasherNanoExp{
         int _offLevel = 0;
         int _onLevel = 1;
         // bool _reverse = false;
+        bool _flashingMode = false;
 };
 
 #endif

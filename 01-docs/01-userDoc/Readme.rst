@@ -134,7 +134,7 @@ I2C address
 
 Choosed add, in config.h
 ============================
-0x5F 
+0x58
 
 Base address is 0x58 ored with pin state D12..D10, @1 by default
 
@@ -167,7 +167,7 @@ For last up today, see Doxygen source documentation of MAXREG macro in the confi
 RO : Read Only
 R/W : Read and Write enabled registers
 
-Writable registers are : 1,2,4,5 and 7
+Writable registers are : 1,2,4,5, 7 8 9 and 10
 
 
 Pining
