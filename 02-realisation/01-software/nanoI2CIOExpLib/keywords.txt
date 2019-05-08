@@ -24,6 +24,8 @@ update	KEYWORD2
 reverseMode	KEYWORD2
 getChangeStateCpt	KEYWORD2
 stop	KEYWORD2
+high    KEYWORD2
+low     KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
