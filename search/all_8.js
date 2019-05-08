@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['loop',['loop',['../nano_i2_c_i_o_expander_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;nanoI2CIOExpander.ino'],['../analog_read_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;analogRead.ino'],['../blink_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;blink.ino'],['../flasher_8ino.html#afe461d27b9c48d5921c00d521181f12f',1,'loop():&#160;flasher.ino']]]
+  ['i2cadd',['I2CADD',['../config_8h.html#a90a26bb5cd70f8de05f408b897174433',1,'config.h']]],
+  ['i2cbuildaddress',['i2cBuildAddress',['../nano_i2_c_i_o_expander_8ino.html#af6cf9735d28fb36e70b6b5fb8203fcf0',1,'nanoI2CIOExpander.ino']]],
+  ['i2clowadd',['I2CLOWADD',['../config_8h.html#ae323808bd523738ad50adf8615778492',1,'config.h']]],
+  ['initok',['initOk',['../class_c_nano_i2_c_i_o_expander.html#a71c307a51a6d9beac445a5c923160813',1,'CNanoI2CIOExpander']]],
+  ['ioexp',['ioexp',['../analog_read_8ino.html#a19a052045cab0dbac6bfcbfb51277b7c',1,'ioexp():&#160;analogRead.ino'],['../blink_8ino.html#a19a052045cab0dbac6bfcbfb51277b7c',1,'ioexp():&#160;blink.ino']]]
 ];
