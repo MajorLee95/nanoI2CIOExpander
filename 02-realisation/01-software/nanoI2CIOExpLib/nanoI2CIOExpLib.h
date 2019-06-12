@@ -44,7 +44,7 @@ class CNanoI2CIOExpander{
         void digitalWrite( int output, int value );
         int analogRead( int input);
         static bool initOk;
-        bool test();
+        bool test( bool silentMode = false );
 
 
     private:

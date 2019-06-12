@@ -166,15 +166,15 @@ void CNanoI2CIOExpander::writeRegister( int add, int val){
  and write 0x12 to register Test2 (reg add = 2)
  and re-read the values and display them on Serial monitor
 */
-bool CNanoI2CIOExpander::test(){
-    Serial.println( "Write 0x10 to 1");
+bool CNanoI2CIOExpander::test( bool silentMode ){
+    if ( !silentMode) Serial.println( "Write 0x10 to 1");
     writeRegister(1, 0X10);
-    Serial.println( "Write 0x12 to 2");
+    if ( !silentMode) Serial.println( "Write 0x12 to 2");
     writeRegister(2, 0X12);
     int retValReg1 = readRegister(1);
     int retValReg2 = readRegister(2);
-    Serial.println( "Read of reg 1 = " + String( retValReg1, HEX  ) );
-    Serial.println( "Read of reg 2 = " + String( retValReg2, HEX  ) );
+    if ( !silentMode) Serial.println( "Read of reg 1 = " + String( retValReg1, HEX  ) );
+    if ( !silentMode) Serial.println( "Read of reg 2 = " + String( retValReg2, HEX  ) );
     return ( (retValReg1 == 0X10) && (retValReg2 == 0X12) );
 }
 
@@ -196,7 +196,7 @@ void CFlasherNanoExp::begin( int pin, unsigned long ton, unsigned long toff){
     _ledState = 0;
     _previousMillis = 0;
     _changeStateCpt = 0;
-    Serial.println( "ici ");
+    // Serial.println( "ici ");
     _ioexp.digitalWrite( _pin, _ledState );
     // _reverse= false;
     _offLevel = 0;
