@@ -39,7 +39,7 @@ Don't forget to connect ground between the components.
 
  Wire version 1.0
 
-* @todo Add MEGA2560 more fonctionnalities (more analog and digital IO)
+* @todo Add MEGA2560 more functionalities (more analog and digital IO)
 
 */
 
